@@ -18,7 +18,7 @@ object NetworkModule {
     fun provideRetrofit(): Retrofit {
         return Retrofit
             .Builder()
-            .baseUrl("81.39.14.219:8080/travelagency/") //TODO needs https or http
+            .baseUrl("http://169.254.154.183:8080/travelagency/") //TODO needs https or http
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

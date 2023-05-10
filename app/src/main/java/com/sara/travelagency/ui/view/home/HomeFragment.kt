@@ -1,6 +1,7 @@
 package com.sara.travelagency.ui.view.home
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,10 @@ import androidx.fragment.app.viewModels
 import com.sara.travelagency.R
 import com.sara.travelagency.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -37,7 +42,16 @@ class HomeFragment : Fragment() {
     private fun initListeners() {
 
         binding.btnLookUp.setOnClickListener {
-            viewModel.lookUpRoom(binding.tvAutoComplete.text.toString(), binding.etPeople.text.toString(), binding.etBudget.text.toString())
+            val dateCheckIn = parsedDate(binding.etCheckIn.text.toString())
+            val dateCheckOut = parsedDate(binding.etCheckOut.text.toString())
+//            viewModel.lookUpRoom(binding.tvAutoComplete.text.toString(), binding.etPeople.text.toString(), binding.etBudget.text.toString())
+
+            if(!dateCheckIn.equals("error") && !dateCheckOut.equals("error")){
+                Log.i("POTATO", "Both dates are valid")
+                viewModel.lookUpRoom(binding.tvAutoComplete.text.toString(), binding.etPeople.text.toString(), binding.etBudget.text.toString(), dateCheckIn, dateCheckOut)
+            }else{
+                Log.i("POTATO", "Dates are not valid")
+            }
 //            Log.i("POTATO", binding.tvAutoComplete.text.toString())
 //            Log.i("POTATO", binding.etPeople.text.toString())
 //            Log.i("POTATO", binding.etBudget.text.toString())
@@ -54,6 +68,23 @@ class HomeFragment : Fragment() {
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    fun parsedDate(date: String): String{
+
+//TODO return the actual date
+        val inputDf = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
+        val outputDf = SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault())
+
+        val parsedDate:Date
+        try{
+            parsedDate = inputDf.parse(date)?: return "error"
+        }catch (e: ParseException){
+            return "error"
+        }
+        return outputDf.format(parsedDate)
+
+
     }
 
 

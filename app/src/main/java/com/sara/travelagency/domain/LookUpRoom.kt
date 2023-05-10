@@ -8,5 +8,5 @@ class LookUpRoom @Inject constructor(
     private val repository: TravelAgencyRepository
 ){
 
-    suspend operator fun invoke(city: String, capacity: String, price: String): List<RoomItem> = repository.lookUpRoom(city, capacity, price)
+    suspend operator fun invoke(city: String, capacity: String, price: String, dateCheckIn: String, dateCheckOut: String): List<RoomItem> = repository.lookUpRoom(city, capacity, price, dateCheckIn, dateCheckOut)
 }
