@@ -1,11 +1,15 @@
 package com.sara.travelagency.ui.view.home
 
-import android.R.attr
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.room.Room
 import com.sara.travelagency.domain.LookUpRoom
+import com.sara.travelagency.domain.model.RoomItem
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -31,11 +35,14 @@ class HomeViewModel @Inject constructor(
             "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "US Virgin Islands", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Wallis and Futuna", "West Bank", "Yemen", "Zambia", "Zimbabwe")
     }
 
-    fun lookUpRoom(city: String, capacity: String, price: String, dateCheckIn: String, dateCheckOut: String) {
-        viewModelScope.launch {
+    fun lookUpRoom(city: String, capacity: String, price: String, dateCheckIn: String, dateCheckOut: String, navigateToResults: (List<RoomItem>)-> Unit){
+        viewModelScope.launch(Dispatchers.IO) {
             val rooms = lookUppRoom(city, capacity, price, dateCheckIn, dateCheckOut)
-            Log.i("POTATO", rooms.toString())
+            Log.i("POTATO", "viewModelScope $rooms")
+            navigateToResults(rooms)
+
         }
+
     }
 
 

@@ -1,5 +1,6 @@
 package com.sara.travelagency.ui.view.home
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,6 +12,8 @@ import android.widget.AutoCompleteTextView
 import androidx.fragment.app.viewModels
 import com.sara.travelagency.R
 import com.sara.travelagency.databinding.FragmentHomeBinding
+import com.sara.travelagency.domain.model.RoomItem
+import com.sara.travelagency.ui.view.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -44,17 +47,10 @@ class HomeFragment : Fragment() {
         binding.btnLookUp.setOnClickListener {
             val dateCheckIn = parsedDate(binding.etCheckIn.text.toString())
             val dateCheckOut = parsedDate(binding.etCheckOut.text.toString())
-//            viewModel.lookUpRoom(binding.tvAutoComplete.text.toString(), binding.etPeople.text.toString(), binding.etBudget.text.toString())
 
             if(!dateCheckIn.equals("error") && !dateCheckOut.equals("error")){
-                Log.i("POTATO", "Both dates are valid")
-                viewModel.lookUpRoom(binding.tvAutoComplete.text.toString(), binding.etPeople.text.toString(), binding.etBudget.text.toString(), dateCheckIn, dateCheckOut)
-            }else{
-                Log.i("POTATO", "Dates are not valid")
+                viewModel.lookUpRoom(binding.tvAutoComplete.text.toString(), binding.etPeople.text.toString(), binding.etBudget.text.toString(), dateCheckIn, dateCheckOut, navigateToResults ={navigateToResults(it)})
             }
-//            Log.i("POTATO", binding.tvAutoComplete.text.toString())
-//            Log.i("POTATO", binding.etPeople.text.toString())
-//            Log.i("POTATO", binding.etBudget.text.toString())
         }
 //        autoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
 //            val itemSelected = adapterView.getItemAtPosition(i)
@@ -71,21 +67,31 @@ class HomeFragment : Fragment() {
     }
 
     fun parsedDate(date: String): String{
-
-//TODO return the actual date
         val inputDf = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
         val outputDf = SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault())
-
         val parsedDate:Date
+
         try{
             parsedDate = inputDf.parse(date)?: return "error"
         }catch (e: ParseException){
+            showAlert()
             return "error"
         }
         return outputDf.format(parsedDate)
-
-
     }
 
+    private fun showAlert() {
+        val builder = AlertDialog.Builder(this.context)
+        builder.setTitle("Error")
+        builder.setMessage("Fecha no valida")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+    fun navigateToResults(rooms: List<RoomItem>){
+        Log.i("POTATO", "HomeFragment viewModel.roomsList: $rooms")
+        val mainActivity = activity as MainActivity
+        mainActivity.navigateToResults(rooms)
+    }
 
 }

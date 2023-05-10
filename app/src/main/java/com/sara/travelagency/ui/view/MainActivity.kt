@@ -1,5 +1,6 @@
 package com.sara.travelagency.ui.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
@@ -7,6 +8,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.sara.travelagency.R
 import com.sara.travelagency.databinding.ActivityMainBinding
+import com.sara.travelagency.domain.model.RoomItem
+import com.sara.travelagency.ui.view.results.ResultActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,4 +30,18 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView.setupWithNavController(navController)
     }
+
+    fun navigateToResults(roomsList: List<RoomItem>) {
+        val idRoomsList = mutableListOf<String>()
+        roomsList.forEach {
+            idRoomsList.add(it.idRoom)
+        }
+        val intent = Intent(this, ResultActivity::class.java).apply {
+
+            putStringArrayListExtra("LIST_ROOMS", ArrayList(idRoomsList)) }
+        startActivity(intent)
+
+    }
+
+
 }
