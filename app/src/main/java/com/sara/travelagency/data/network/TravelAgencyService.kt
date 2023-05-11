@@ -18,4 +18,8 @@ class TravelAgencyService @Inject constructor(private val api: ApiService){
     suspend fun getHotelById(idHotel: String): HotelResponse{
         return api.getHotelById(idHotel)
     }
+
+    suspend fun getRoomById(id: String): RoomResponse {
+        return api.getRoomById(id)
+    }
 }

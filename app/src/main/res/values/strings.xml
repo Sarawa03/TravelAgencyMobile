@@ -68,4 +68,8 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="details_proceed">Proceed with your purchase?</string>
+    <string name="visit_website">Visit Website</string>
+    <string name="buy">Buy</string>
+    <string name="cancel">Cancel</string>
 </resources>

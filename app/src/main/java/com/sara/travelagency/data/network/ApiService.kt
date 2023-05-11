@@ -18,4 +18,7 @@ interface ApiService {
     @GET("hotels/{hotel_id}")
     suspend fun getHotelById(@Path("hotel_id")idHotel: String): HotelResponse
 
+    @GET("rooms/{room_id}")
+    suspend fun getRoomById(@Path("room_id")id: String): RoomResponse
+
 }

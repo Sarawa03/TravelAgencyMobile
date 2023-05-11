@@ -31,5 +31,10 @@ class TravelAgencyRepository @Inject constructor(
         return unbookedRooms.toList()
     }
 
+    suspend fun getRoomById(id: String): RoomItem {
+        val roomResponse = api.getRoomById(id)
+        return api.getRoomById(id).toDomain(api.getHotelById(roomResponse.hotel).toDomain())
+    }
+
 
 }
