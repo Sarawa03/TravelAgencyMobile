@@ -44,7 +44,8 @@ class DetailsActivity : AppCompatActivity() {
         binding.tvHotelName.text= roomItem.hotel.hotelName
         binding.tvAddress.text= roomItem.hotel.address
         binding.tvPrice.text= roomItem.price
-        Picasso.get().load(roomItem.hotel.logo).into(binding.imgHotel)
+        //Picasso.get().load(roomItem.hotel.logo).into(binding.imgHotel)
+        Picasso.get().load(("http://169.254.154.183:8080/travelagency/hotels/logo/"+roomItem.hotel.idHotel)).into(binding.imgHotel)
         loadStars(roomItem.hotel.stars.toInt())
         url = roomItem.hotel.website
     }

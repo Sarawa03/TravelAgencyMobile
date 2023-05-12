@@ -23,7 +23,9 @@ class ResultViewHolder (view: View): RecyclerView.ViewHolder(view){
         sb.append(roomItem.price)
         sb.append(" €")
         binding.hotelPrice.text = sb.toString()
-        Picasso.get().load(roomItem.hotel.logo).into(binding.hotelLogo)
+
+//        Picasso.get().load(roomItem.hotel.logo).into(binding.hotelLogo)
+        Picasso.get().load(("http://169.254.154.183:8080/travelagency/hotels/logo/"+roomItem.hotel.idHotel)).into(binding.hotelLogo)
 
         loadStars(roomItem.hotel.stars.toInt())
 

@@ -3,6 +3,7 @@ package com.sara.travelagency.data.network
 import com.sara.travelagency.data.model.BookingsResponse
 import com.sara.travelagency.data.model.HotelResponse
 import com.sara.travelagency.data.model.RoomResponse
+import com.sara.travelagency.data.model.UserResponse
 import retrofit2.http.Query
 import javax.inject.Inject
 
@@ -21,5 +22,9 @@ class TravelAgencyService @Inject constructor(private val api: ApiService){
 
     suspend fun getRoomById(id: String): RoomResponse {
         return api.getRoomById(id)
+    }
+
+    suspend fun getAllUsers(): List<UserResponse> {
+        return api.getAllUsers()
     }
 }

@@ -3,6 +3,7 @@ package com.sara.travelagency.data.network
 import com.sara.travelagency.data.model.BookingsResponse
 import com.sara.travelagency.data.model.HotelResponse
 import com.sara.travelagency.data.model.RoomResponse
+import com.sara.travelagency.data.model.UserResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -20,5 +21,8 @@ interface ApiService {
 
     @GET("rooms/{room_id}")
     suspend fun getRoomById(@Path("room_id")id: String): RoomResponse
+
+    @GET("users")
+    suspend fun getAllUsers(): List<UserResponse>
 
 }

@@ -72,4 +72,6 @@
     <string name="visit_website">Visit Website</string>
     <string name="buy">Buy</string>
     <string name="cancel">Cancel</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
 </resources>
