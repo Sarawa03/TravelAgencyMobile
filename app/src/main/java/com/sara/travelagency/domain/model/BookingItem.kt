@@ -5,10 +5,10 @@ import com.sara.travelagency.data.model.BookingsResponse
 
 data class BookingItem (
     val idBooking: String,
-    val idUser: String,
-    val idRoom: String,
+    val user: UserItem,
+    val room: RoomItem,
     val initialDate: String,
     val endDate: String
 )
 
-fun BookingsResponse.toDomain() = BookingItem(idbooking, idUser, idRoom, initialDate, endDate)
+fun BookingsResponse.toDomain(user: UserItem, room: RoomItem) = BookingItem(idbooking, user, room, initialDate, endDate)

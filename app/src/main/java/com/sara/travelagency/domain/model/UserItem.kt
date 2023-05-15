@@ -9,7 +9,7 @@ data class UserItem (
     val idUser: String,
     val username: String,
     val email: String,
-    val userPassword: String,
+    var userPassword: String,
     val phone: String?,
     val img: String?,
     val administrator: String,
@@ -17,4 +17,4 @@ data class UserItem (
     val bookedRooms: List<RoomResponse>
 ): Serializable
 
-fun UserResponse.toDomain() = UserItem(idUser, username, email, userPassword, phone, img, administrator, bookedTimes, bookedRooms)
+fun UserResponse.toDomain() = UserItem(idUser, username, email, userPassword, phone, img, administrator, bookedTimes, rooms)

@@ -3,6 +3,12 @@
     <style name="Base.Theme.TravelAgency" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
          <item name="colorPrimary">@color/background_top</item>
+    </style>
+    <style name="NavBar" parent="Theme.Material3.DayNight.NoActionBar">
+         <item name="colorPrimary">@color/background_top</item>
+         <item name="colorSecondary">@color/highlight</item>
+         <item name="rippleColor">@color/highlight</item>
+
 
     </style>
 

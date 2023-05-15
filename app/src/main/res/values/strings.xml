@@ -74,4 +74,9 @@
     <string name="cancel">Cancel</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Login</string>
+    <string name="bookingDetails_exp">2 Persons | 08.03 - 10.03.2023</string>
+    <string name="enter_password">Enter your password to save</string>
+    <string name="forgot_password">Forgot your password?</string>
+    <string name="change_password">Change password</string>
+    <string name="new_password">New Password</string>
 </resources>

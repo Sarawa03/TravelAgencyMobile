@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sara.travelagency.R
 import com.sara.travelagency.databinding.ResultsItemBinding
 import com.sara.travelagency.domain.model.RoomItem
+import com.sara.travelagency.ui.view.MainActivity
 import com.squareup.picasso.Picasso
 import java.lang.StringBuilder
 import java.text.DecimalFormat
@@ -12,6 +13,7 @@ import java.text.DecimalFormat
 class ResultViewHolder (view: View): RecyclerView.ViewHolder(view){
 
     private val binding = ResultsItemBinding.bind(view)
+
 
     fun bind(roomItem: RoomItem, onItemSelected: (String) -> Unit ){
         binding.hotelName.text = roomItem.hotel.hotelName
@@ -24,9 +26,7 @@ class ResultViewHolder (view: View): RecyclerView.ViewHolder(view){
         sb.append(" €")
         binding.hotelPrice.text = sb.toString()
 
-//        Picasso.get().load(roomItem.hotel.logo).into(binding.hotelLogo)
-        Picasso.get().load(("http://169.254.154.183:8080/travelagency/hotels/logo/"+roomItem.hotel.idHotel)).into(binding.hotelLogo)
-
+        Picasso.get().load((MainActivity.baseUrl+ "hotels/logo/"+roomItem.hotel.idHotel)).into(binding.hotelLogo)
         loadStars(roomItem.hotel.stars.toInt())
 
         binding.root.setOnClickListener {onItemSelected(roomItem.idRoom)}

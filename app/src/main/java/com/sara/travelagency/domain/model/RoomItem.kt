@@ -12,7 +12,7 @@ data class RoomItem (
     )
 data class HotelItem (
     val idHotel: String?,
-    val logo: String,
+    val logo: String?,
     val hotelName: String,
     val address: String,
     val city: String,

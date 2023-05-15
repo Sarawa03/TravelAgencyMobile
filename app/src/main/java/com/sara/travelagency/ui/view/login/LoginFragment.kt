@@ -22,7 +22,13 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding?=null
     private val binding get() = _binding!!
     private val loginViewModel by viewModels<LoginViewModel>()
-
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
@@ -31,7 +37,6 @@ class LoginFragment : Fragment() {
     private fun initListeners() {
         binding.btnLogin.setOnClickListener {
             loginViewModel.userLogIn(binding.etUsername.text.toString(), binding.etPassword.text.toString())
-
         }
 
         binding.btnSignUp.setOnClickListener {
@@ -52,7 +57,6 @@ class LoginFragment : Fragment() {
     private fun logIn(user: UserItem) {
         val authActivity = activity as AuthActivity
         authActivity.goHome(user)
-
     }
 
     private fun showAlert() {
@@ -64,12 +68,6 @@ class LoginFragment : Fragment() {
         dialog.show()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+
 
 }
