@@ -1,13 +1,10 @@
 package com.sara.travelagency.ui.view.results
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -15,7 +12,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.sara.travelagency.R
 import com.sara.travelagency.databinding.FragmentResultBinding
 import com.sara.travelagency.ui.view.MainActivity
-import com.sara.travelagency.ui.view.details.DetailsActivity
 import com.sara.travelagency.ui.view.results.recyclerview.ResultAdapter
 
 

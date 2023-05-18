@@ -12,7 +12,6 @@ import com.sara.travelagency.databinding.ActivityMainBinding
 import com.sara.travelagency.domain.model.RoomItem
 import com.sara.travelagency.domain.model.UserItem
 import com.sara.travelagency.ui.view.resetpassword.ResetPasswordActivity
-import com.sara.travelagency.ui.view.results.ResultActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
