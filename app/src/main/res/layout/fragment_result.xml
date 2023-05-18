@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_app"
-    tools:context=".ui.view.results.ResultActivity">
+    tools:context=".ui.view.results.ResultFragment">
 
     <ProgressBar
         android:id="@+id/loading"
@@ -36,13 +36,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:tint="@color/divider" />
 
-<!--            <ImageView-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:layout_gravity="end"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                android:src="@drawable/default_pfp" />-->
+            <!--            <ImageView-->
+            <!--                android:layout_width="40dp"-->
+            <!--                android:layout_height="40dp"-->
+            <!--                android:layout_gravity="end"-->
+            <!--                app:layout_constraintTop_toTopOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                android:src="@drawable/default_pfp" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

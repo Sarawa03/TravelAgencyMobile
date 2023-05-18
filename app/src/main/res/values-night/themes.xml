@@ -4,4 +4,12 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/background_app</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_icon</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+<!--        <item name="android:windowSplashScreenBrandingImage">@drawable/text_splash_screen</item>-->
+        <item name="postSplashScreenTheme">@style/Base.Theme.TravelAgency</item>
+    </style>
 </resources>

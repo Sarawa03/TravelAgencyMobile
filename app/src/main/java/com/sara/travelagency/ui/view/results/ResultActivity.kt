@@ -23,6 +23,9 @@ class ResultActivity : AppCompatActivity() {
     private var idRoomsList: ArrayList<String>?= arrayListOf()
     private lateinit var adapter: ResultAdapter
 
+    private lateinit var dateCheckIn:String
+    private lateinit var dateCheckOut:String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
@@ -37,6 +40,9 @@ class ResultActivity : AppCompatActivity() {
     private fun initUI() {
         adapter = ResultAdapter(onItemSelected = {navigateToDetail(it)})
         idRoomsList = intent.getStringArrayListExtra("LIST_ROOMS")
+        dateCheckIn = intent.getStringExtra("DATE_CHECK_IN")!!
+        dateCheckOut = intent.getStringExtra("DATE_CHECK_OUT")!!
+
         Log.i("POTATO", "ResultActivity idRoomsList: $idRoomsList")
         binding.rvHotelResults.setHasFixedSize(true)
         binding.rvHotelResults.layoutManager = GridLayoutManager(this, 1)
@@ -72,8 +78,19 @@ class ResultActivity : AppCompatActivity() {
         }
     }
     private fun navigateToDetail(id: String){
+
+
+
+//        val bundle = Bundle()
+//        bundle.putString("id", id)
+//        bundle.putString("DATE_CHECK_IN", dateCheckIn)
+//        bundle.putString("DATE_CHECK_OUT", dateCheckOut)
+
+
         val intent = Intent(this, DetailsActivity::class.java).apply {
             putExtra("id", id)
+            putExtra("DATE_CHECK_IN", dateCheckIn)
+            putExtra("DATE_CHECK_OUT", dateCheckOut)
         }
         startActivity(intent)
     }

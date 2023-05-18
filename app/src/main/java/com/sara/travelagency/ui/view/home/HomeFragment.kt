@@ -15,6 +15,7 @@ import com.sara.travelagency.databinding.FragmentHomeBinding
 import com.sara.travelagency.domain.model.RoomItem
 import com.sara.travelagency.ui.view.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
+import java.lang.StringBuilder
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -28,6 +29,8 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding?=null
     private val binding get()=_binding!!
     private lateinit var autoCompleteTextView: AutoCompleteTextView
+    private lateinit var dateCheckIn:String
+    private lateinit var dateCheckOut:String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,7 +40,8 @@ class HomeFragment : Fragment() {
 
     private fun initUI() {
         autoCompleteTextView = binding.tvAutoComplete
-        var adapterItems = ArrayAdapter(this.requireContext(), R.layout.country_dropdown_list, viewModel.allCountries())
+        val adapterItems = ArrayAdapter(this.requireContext(), R.layout.country_dropdown_list, viewModel.allCountries())
+        binding.tvWelcome.text = StringBuilder("Welcome, " + MainActivity.user.username).toString()
         autoCompleteTextView.setAdapter(adapterItems)
 
     }
@@ -45,8 +49,8 @@ class HomeFragment : Fragment() {
     private fun initListeners() {
 
         binding.btnLookUp.setOnClickListener {
-            val dateCheckIn = parsedDate(binding.etCheckIn.text.toString())
-            val dateCheckOut = parsedDate(binding.etCheckOut.text.toString())
+            dateCheckIn = parsedDate(binding.etCheckIn.text.toString())
+            dateCheckOut = parsedDate(binding.etCheckOut.text.toString())
 
             if(!dateCheckIn.equals("error") && !dateCheckOut.equals("error")){
                 viewModel.lookUpRoom(binding.tvAutoComplete.text.toString(), binding.etPeople.text.toString(), binding.etBudget.text.toString(), dateCheckIn, dateCheckOut, navigateToResults ={navigateToResults(it)})
@@ -91,7 +95,7 @@ class HomeFragment : Fragment() {
     fun navigateToResults(rooms: List<RoomItem>){
         Log.i("POTATO", "HomeFragment viewModel.roomsList: $rooms")
         val mainActivity = activity as MainActivity
-        mainActivity.navigateToResults(rooms)
+        mainActivity.navigateToResults(rooms, dateCheckIn, dateCheckOut)
     }
 
 }

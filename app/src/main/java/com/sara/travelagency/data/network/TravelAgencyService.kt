@@ -56,5 +56,9 @@ class TravelAgencyService @Inject constructor(private val api: ApiService){
         return api.getBookings(idUser).body()?: emptyList()
     }
 
+    suspend fun buyHotelRoom(hotelRoom: BookingsResponse) {
+        api.buyHotelRoom(hotelRoom)
+    }
+
 
 }

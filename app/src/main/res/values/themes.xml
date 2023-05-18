@@ -8,8 +8,13 @@
          <item name="colorPrimary">@color/background_top</item>
          <item name="colorSecondary">@color/highlight</item>
          <item name="rippleColor">@color/highlight</item>
+    </style>
 
-
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/background_app</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_icon</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.TravelAgency</item>
     </style>
 
     <style name="Theme.TravelAgency" parent="Base.Theme.TravelAgency" />

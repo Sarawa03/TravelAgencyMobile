@@ -1,6 +1,7 @@
 package com.sara.travelagency.data
 
 import android.util.Log
+import com.sara.travelagency.data.model.BookingsResponse
 import com.sara.travelagency.data.model.UserResponse
 import com.sara.travelagency.data.model.toDomain
 import com.sara.travelagency.data.model.toPut
@@ -65,8 +66,14 @@ class TravelAgencyRepository @Inject constructor(
         else return true
     }
 
+    suspend fun buyHotelRoom(room: RoomItem, dateCheckIn: String, dateCheckOut: String) {
+        val hotelRoom = BookingsResponse("", MainActivity.user.idUser, room.idRoom, dateCheckIn, dateCheckOut)
+        api.buyHotelRoom(hotelRoom)
+    }
+
     suspend fun updateUser(user: UserItem, password: String):String{
         val listUsers = api.getAllUsers().toMutableList()
+        Log.i("ACCOUNT", "MAIN ACTIVITY USER ${MainActivity.user}")
         listUsers.remove(MainActivity.user.toDomain()) //Delete the user we are logged in as it will give user exists otherwise in case we dont change name and email
 
         if(existsUserAlready(listUsers, user.email,user.username)){
@@ -74,6 +81,7 @@ class TravelAgencyRepository @Inject constructor(
         }else if(user.userPassword!=password){
             return "password"
         }else{
+            //MainActivity.user = user
             api.updateUser(user.toPut())
             return "success"
         }

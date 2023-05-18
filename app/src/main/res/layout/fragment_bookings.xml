@@ -21,11 +21,11 @@
         android:layout_margin="30dp"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="end"
-            android:src="@drawable/default_pfp"/>
+<!--        <ImageView-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:src="@drawable/default_pfp"/>-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -64,7 +64,10 @@ class AccountFragment : Fragment() {
         viewModel.userAccountViewModel.observe(viewLifecycleOwner, Observer {
             Log.i("ACCOUNT", it)
             if(it!="sucess")DynamicToast.makeError(this.requireContext(), it)
-            else DynamicToast.makeSuccess(this.requireContext(), "User has been succesfully updated")
+            else{
+                DynamicToast.makeSuccess(this.requireContext(), "User has been succesfully updated")
+
+            }
         })
 
     }

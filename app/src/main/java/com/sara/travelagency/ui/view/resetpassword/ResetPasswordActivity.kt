@@ -2,6 +2,7 @@ package com.sara.travelagency.ui.view.resetpassword
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
@@ -21,13 +22,14 @@ class ResetPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityResetPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        Log.i("RESETPASS","MainActivity: ${MainActivity.user}")
         initListeners()
     }
 
     private fun initListeners() {
         binding.btnSave.setOnClickListener {
             val u = MainActivity.user
+            Log.i("RESETPASS","MainActivity: ${MainActivity.user}")
             viewModel.userPassword(UserItem(u.idUser, u.username, u.email, binding.etNewPassword.text.toString(), u.phone, u.img, u.administrator, u.bookedTimes, u.bookedRooms), binding.etPassword.text.toString())
         }
 

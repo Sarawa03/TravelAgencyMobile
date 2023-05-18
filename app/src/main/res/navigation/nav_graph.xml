@@ -21,4 +21,14 @@
         android:name="com.sara.travelagency.ui.view.account.AccountFragment"
         android:label="account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.sara.travelagency.ui.view.details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.sara.travelagency.ui.view.results.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" />
 </navigation>

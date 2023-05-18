@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_app"
-    tools:context=".ui.view.details.DetailsActivity">
+    tools:context=".ui.view.details.DetailsFragment">
     <ProgressBar
         android:id="@+id/loading"
         android:layout_width="wrap_content"
@@ -21,11 +21,11 @@
         android:layout_margin="30dp"
         android:orientation="vertical">
 
-<!--        <ImageView-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_gravity="end"-->
-<!--            android:src="@drawable/default_pfp"/>-->
+        <!--        <ImageView-->
+        <!--            android:layout_width="40dp"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:layout_gravity="end"-->
+        <!--            android:src="@drawable/default_pfp"/>-->
 
         <LinearLayout
             android:layout_width="match_parent"

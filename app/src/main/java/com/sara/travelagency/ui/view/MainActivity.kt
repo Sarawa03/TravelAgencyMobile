@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object{
         lateinit var user: UserItem
+//        val baseUrl = "http://81.39.108.35:8080/travelagency/"
         val baseUrl = "http://169.254.154.183:8080/travelagency/"
     }
 
@@ -42,15 +43,16 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setupWithNavController(navController)
     }
 
-    fun navigateToResults(roomsList: List<RoomItem>) {
+    fun navigateToResults(roomsList: List<RoomItem>, dateCheckIn: String, dateCheckOut: String) {
         val idRoomsList = mutableListOf<String>()
         roomsList.forEach {
             idRoomsList.add(it.idRoom)
         }
-        val intent = Intent(this, ResultActivity::class.java).apply {
-
-            putStringArrayListExtra("LIST_ROOMS", ArrayList(idRoomsList)) }
-        startActivity(intent)
+        val bundle = Bundle()
+        bundle.putStringArrayList("LIST_ROOMS", ArrayList(idRoomsList))
+        bundle.putString("DATE_CHECK_IN", dateCheckIn)
+        bundle.putString("DATE_CHECK_OUT", dateCheckOut)
+        navController.navigate(R.id.resultFragment, bundle)
 
     }
 
@@ -71,5 +73,27 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun pressBack() {
+        onBackPressedDispatcher.onBackPressed()
+    }
+
+    fun goToHome() {
+        navController.navigate(R.id.homeFragment)
+    }
+
+    fun navigateToDetail(bundle: Bundle) {
+        navController.navigate(R.id.detailsFragment, bundle)
+    }
+
+//    override fun onResume() {
+//        super.onResume()
+//        val fragment = intent.getStringExtra("FRAGMENT")
+//        when(fragment){
+//            "Account" -> navController.navigate(R.id.accountFragment)
+//            "Bookings" -> navController.navigate(R.id.bookingsFragment)
+//            else -> navController.navigate(R.id.homeFragment)
+//        }
+//
+//    }
 
 }

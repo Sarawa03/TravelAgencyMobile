@@ -41,5 +41,8 @@ interface ApiService {
     @PUT("users")
     suspend fun updateUser(@Body user: UserPut): Response<UserResponse> //todo returns null(?)
 
+    @POST("bookings")
+    suspend fun buyHotelRoom(@Body hotelRoom: BookingsResponse)
+
 
 }
