@@ -10,15 +10,18 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sara.travelagency.R
+import com.sara.travelagency.databinding.FragmentDetailsBinding
 import com.sara.travelagency.databinding.FragmentResultBinding
 import com.sara.travelagency.ui.view.MainActivity
 import com.sara.travelagency.ui.view.results.recyclerview.ResultAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
 
 private const val LIST_ROOMS = "LIST_ROOMS"
 private const val DATE_CHECK_IN = "DATE_CHECK_IN"
 private const val DATE_CHECK_OUT = "DATE_CHECK_OUT"
 
+@AndroidEntryPoint
 class ResultFragment : Fragment() {
 
     private var _binding: FragmentResultBinding?=null
@@ -103,8 +106,8 @@ class ResultFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        return inflater.inflate(R.layout.fragment_result, container, false)
+        _binding = FragmentResultBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     companion object {

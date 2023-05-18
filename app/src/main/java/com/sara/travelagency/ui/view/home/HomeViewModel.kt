@@ -36,7 +36,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun lookUpRoom(city: String, capacity: String, price: String, dateCheckIn: String, dateCheckOut: String, navigateToResults: (List<RoomItem>)-> Unit){
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.Main) {
             val rooms = lookUppRoom(city, capacity, price, dateCheckIn, dateCheckOut)
             Log.i("POTATO", "viewModelScope $rooms")
             navigateToResults(rooms)

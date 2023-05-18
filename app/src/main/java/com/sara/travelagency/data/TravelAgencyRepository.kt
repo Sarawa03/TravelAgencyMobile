@@ -81,7 +81,7 @@ class TravelAgencyRepository @Inject constructor(
         }else if(user.userPassword!=password){
             return "password"
         }else{
-            //MainActivity.user = user
+            MainActivity.user = user
             api.updateUser(user.toPut())
             return "success"
         }

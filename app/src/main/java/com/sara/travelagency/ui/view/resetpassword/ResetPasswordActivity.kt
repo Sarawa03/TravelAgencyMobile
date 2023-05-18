@@ -3,6 +3,7 @@ package com.sara.travelagency.ui.view.resetpassword
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
@@ -38,8 +39,8 @@ class ResetPasswordActivity : AppCompatActivity() {
         }
 
         viewModel.resetPasswordViewModel.observe(this, Observer {
-            if(it)DynamicToast.makeSuccess(this, "Password changed succesfully")
-            else DynamicToast.makeError(this, "Password error")
+            if(it)DynamicToast.makeSuccess(this, "Password changed succesfully", Toast.LENGTH_SHORT).show()
+            else DynamicToast.makeError(this, "Password error", Toast.LENGTH_SHORT).show()
         })
     }
 }

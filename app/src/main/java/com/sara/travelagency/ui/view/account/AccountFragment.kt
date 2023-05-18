@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
@@ -62,10 +63,11 @@ class AccountFragment : Fragment() {
         }
 
         viewModel.userAccountViewModel.observe(viewLifecycleOwner, Observer {
+
             Log.i("ACCOUNT", it)
-            if(it!="sucess")DynamicToast.makeError(this.requireContext(), it)
+            if(it!="success")DynamicToast.makeError(this.requireContext(), it, Toast.LENGTH_SHORT).show()
             else{
-                DynamicToast.makeSuccess(this.requireContext(), "User has been succesfully updated")
+                DynamicToast.makeSuccess(this.requireContext(), "User has been succesfully updated", Toast.LENGTH_SHORT).show()
 
             }
         })

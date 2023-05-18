@@ -29,7 +29,12 @@ class SignUpFragment : Fragment() {
 
     private fun initListeners() {
         binding.btnSignUp.setOnClickListener {
-            signUpViewModel.userSignUp(binding.etEmail.text.toString(), binding.etUsername.text.toString(), binding.etPassword.text.toString())
+            if(binding.etUsername.text.isNullOrEmpty() || binding.etPassword.text.isNullOrEmpty() || binding.etEmail.text.isNullOrEmpty()){
+                DynamicToast.makeError(this.requireContext(), "Fields cant be empty", Toast.LENGTH_SHORT).show()
+            }else{
+                signUpViewModel.userSignUp(binding.etEmail.text.toString(), binding.etUsername.text.toString(), binding.etPassword.text.toString())
+            }
+
         }
 
         binding.btnLogin.setOnClickListener {

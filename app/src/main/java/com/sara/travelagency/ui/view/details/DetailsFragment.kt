@@ -15,11 +15,13 @@ import com.sara.travelagency.databinding.FragmentDetailsBinding
 import com.sara.travelagency.domain.model.RoomItem
 import com.sara.travelagency.ui.view.MainActivity
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val ID_ROOM = "id"
 private const val DATE_CHECK_IN = "DATE_CHECK_IN"
 private const val DATE_CHECK_OUT = "DATE_CHECK_OUT"
 
+@AndroidEntryPoint
 class DetailsFragment : Fragment() {
     private var _binding: FragmentDetailsBinding?=null
     private val binding get() = _binding!!
