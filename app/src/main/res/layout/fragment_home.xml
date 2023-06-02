@@ -54,6 +54,7 @@
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp">
             <AutoCompleteTextView
+
                 android:id="@+id/tvAutoComplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

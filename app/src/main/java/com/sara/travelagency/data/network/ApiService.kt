@@ -5,6 +5,7 @@ import com.sara.travelagency.data.model.HotelResponse
 import com.sara.travelagency.data.model.RoomResponse
 import com.sara.travelagency.data.model.UserPut
 import com.sara.travelagency.data.model.UserResponse
+import com.sara.travelagency.domain.model.RoomItem
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -43,6 +44,9 @@ interface ApiService {
 
     @POST("bookings")
     suspend fun buyHotelRoom(@Body hotelRoom: BookingsResponse)
+
+    @PUT("hotels")
+    suspend fun updateHotel(@Body hotel: HotelResponse)
 
 
 }

@@ -7,6 +7,7 @@ import com.sara.travelagency.data.model.RoomResponse
 import com.sara.travelagency.data.model.UserPut
 import com.sara.travelagency.data.model.UserResponse
 import com.sara.travelagency.domain.model.BookingItem
+import com.sara.travelagency.domain.model.RoomItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.http.Query
@@ -58,6 +59,11 @@ class TravelAgencyService @Inject constructor(private val api: ApiService){
 
     suspend fun buyHotelRoom(hotelRoom: BookingsResponse) {
         api.buyHotelRoom(hotelRoom)
+    }
+
+
+    suspend fun updateHotel(hotel: HotelResponse) {
+        api.updateHotel(hotel)
     }
 
 

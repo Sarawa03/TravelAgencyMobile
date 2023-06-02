@@ -8,7 +8,9 @@ import com.sara.travelagency.domain.model.RoomItem
 import javax.inject.Inject
 
 class ResultAdapter @Inject constructor(
-    private val onItemSelected: (String) -> Unit
+    private val onItemSelected: (String) -> Unit,
+    private val dateCheckIn: String,
+    private val dateCheckOut: String
 ): RecyclerView.Adapter<ResultViewHolder>(){
 
     var roomList: List<RoomItem> = emptyList()
@@ -30,7 +32,7 @@ class ResultAdapter @Inject constructor(
     }
 
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
-        holder.bind(roomList[position], onItemSelected)
+        holder.bind(roomList[position], dateCheckIn, dateCheckOut ,onItemSelected)
     }
 
 

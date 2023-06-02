@@ -18,7 +18,7 @@ data class HotelItem (
     val city: String,
     val stars: String,
     val website: String,
-    val bookedTimes: String
+    var bookedTimes: String
     )
 
 fun RoomResponse.toDomain(hotelItem: HotelItem)=RoomItem(idRoom, price, capacity, booked, hotelItem)

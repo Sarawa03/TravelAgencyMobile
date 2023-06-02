@@ -41,7 +41,7 @@ class ResultFragment : Fragment() {
     }
 
     private fun initUI() {
-        adapter = ResultAdapter(onItemSelected = {navigateToDetail(it)})
+        adapter = ResultAdapter(onItemSelected = {navigateToDetail(it)}, dateCheckIn!!, dateCheckOut!!)
 
         binding.rvHotelResults.setHasFixedSize(true)
         binding.rvHotelResults.layoutManager = GridLayoutManager(this.context, 1)

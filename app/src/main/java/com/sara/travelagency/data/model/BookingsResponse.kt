@@ -7,5 +7,6 @@ data class BookingsResponse (
     @SerializedName("iduser") val idUser: String,
     @SerializedName("idroom") val idRoom: String,
     @SerializedName("initialDate") val initialDate: String,
-    @SerializedName("endDate") val endDate: String
+    @SerializedName("endDate") val endDate: String,
+    @SerializedName("totalPayed") val totalPayed: String
     )

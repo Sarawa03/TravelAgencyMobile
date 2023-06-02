@@ -1,6 +1,7 @@
 package com.sara.travelagency.data.model
 
 import com.google.gson.annotations.SerializedName
+import com.sara.travelagency.domain.model.RoomItem
 import java.io.Serializable
 
 data class RoomResponse (
@@ -10,3 +11,5 @@ data class RoomResponse (
     @SerializedName("booked") val booked: String,
     @SerializedName("hotel") val hotel: String
     ): Serializable
+
+fun RoomItem.toDomain() = RoomResponse(idRoom, price, capacity, booked, hotel.idHotel!!)

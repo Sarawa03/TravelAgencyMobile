@@ -13,7 +13,7 @@ data class UserItem (
     val phone: String?,
     val img: String?,
     val administrator: String,
-    val bookedTimes: String,
+    var bookedTimes: String,
     val bookedRooms: List<RoomResponse>
 ): Serializable
 

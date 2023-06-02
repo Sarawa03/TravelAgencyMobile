@@ -8,7 +8,8 @@ data class BookingItem (
     val user: UserItem,
     val room: RoomItem,
     val initialDate: String,
-    val endDate: String
+    val endDate: String,
+    val totalPayed: String
 )
 
-fun BookingsResponse.toDomain(user: UserItem, room: RoomItem) = BookingItem(idbooking, user, room, initialDate, endDate)
+fun BookingsResponse.toDomain(user: UserItem, room: RoomItem) = BookingItem(idbooking, user, room, initialDate, endDate, totalPayed)
