@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object{
         lateinit var user: UserItem
-        val baseUrl = "http://81.39.108.35:8080/travelagency/"
+        var baseUrl = "http://81.39.108.35:8080/travelagency/"
 //        val baseUrl = "http://169.254.154.183:8080/travelagency/"
     }
 

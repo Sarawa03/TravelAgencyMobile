@@ -9,10 +9,9 @@ data class UserResponse (
     @SerializedName("email") val email: String,
     @SerializedName("userPassword") val userPassword: String,
     @SerializedName("phone") val phone: String?,
-    @SerializedName("img") val img: String?,
     @SerializedName("administrator") val administrator: String,
     @SerializedName("bookedTimes") val bookedTimes: String,
     @SerializedName("rooms") val rooms: List<RoomResponse>
 )
 
-fun UserItem.toDomain() = UserResponse(idUser, username, email, userPassword, phone, img, administrator, bookedTimes, bookedRooms)
+fun UserItem.toDomain() = UserResponse(idUser, username, email, userPassword, phone, administrator, bookedTimes, bookedRooms)

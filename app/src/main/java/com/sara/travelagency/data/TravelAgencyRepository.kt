@@ -74,7 +74,7 @@ class TravelAgencyRepository @Inject constructor(
         lateinit var user: UserResponse
 
         if(!existsUserAlready(listUsers, email, username)){
-            api.insertNewUser(UserResponse("", username, email, password, null, null, "0", "0", emptyList()))
+            api.insertNewUser(UserResponse("", username, email, password, null,  "0", "0", emptyList()))
             return false
         }
         else return true

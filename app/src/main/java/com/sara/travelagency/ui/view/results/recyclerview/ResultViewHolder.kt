@@ -1,6 +1,8 @@
 package com.sara.travelagency.ui.view.results.recyclerview
 
+import android.graphics.BitmapFactory
 import android.os.Build
+import android.util.Base64
 import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
@@ -32,8 +34,10 @@ class ResultViewHolder (view: View): RecyclerView.ViewHolder(view){
         sb.append(calculatesPrice(nights, roomItem.price).toString())
         sb.append(" €")
         binding.hotelPrice.text = sb.toString()
-
-        Picasso.get().load((MainActivity.baseUrl+ "hotels/logo/"+roomItem.hotel.idHotel)).into(binding.hotelLogo)
+        val imageBytes = Base64.decode(roomItem.hotel.logo, Base64.DEFAULT)
+        val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+        binding.hotelLogo.setImageBitmap(bitmap)
+        //Picasso.get().load((MainActivity.baseUrl+ "hotels/logo/"+roomItem.hotel.idHotel)).into(binding.hotelLogo)
         loadStars(roomItem.hotel.stars.toInt())
 
         binding.root.setOnClickListener {onItemSelected(roomItem.idRoom)}

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
+import com.sara.travelagency.R
 import com.sara.travelagency.databinding.FragmentSignUpBinding
 import com.sara.travelagency.domain.model.UserItem
 import com.sara.travelagency.ui.view.AuthActivity
@@ -25,6 +26,11 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
+        initUI()
+    }
+
+    private fun initUI() {
+        binding.ivSignUp.setImageResource(R.drawable.background)
     }
 
     private fun initListeners() {

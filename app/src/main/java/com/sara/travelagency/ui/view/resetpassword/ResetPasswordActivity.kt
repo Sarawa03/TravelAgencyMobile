@@ -31,7 +31,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             val u = MainActivity.user
             Log.i("RESETPASS","MainActivity: ${MainActivity.user}")
-            viewModel.userPassword(UserItem(u.idUser, u.username, u.email, binding.etNewPassword.text.toString(), u.phone, u.img, u.administrator, u.bookedTimes, u.bookedRooms), binding.etPassword.text.toString())
+            viewModel.userPassword(UserItem(u.idUser, u.username, u.email, binding.etNewPassword.text.toString(), u.phone, u.administrator, u.bookedTimes, u.bookedRooms), binding.etPassword.text.toString())
         }
 
         binding.btnCancel.setOnClickListener {

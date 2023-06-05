@@ -9,9 +9,8 @@ data class UserPut (
     @SerializedName("email") val email: String,
     @SerializedName("userPassword") val userPassword: String,
     @SerializedName("phone") val phone: String?,
-    @SerializedName("img") val img: String?,
     @SerializedName("administrator") val administrator: String,
     @SerializedName("bookedTimes") val bookedTimes: String
 )
 
-fun UserItem.toPut() = UserPut(idUser, username, email, userPassword, phone, img, administrator, bookedTimes)
+fun UserItem.toPut() = UserPut(idUser, username, email, userPassword, phone, administrator, bookedTimes)

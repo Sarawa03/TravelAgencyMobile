@@ -28,6 +28,8 @@ class AuthActivity : AppCompatActivity() {
         val authNavHostFragment = supportFragmentManager.findFragmentById(R.id.auth_nav_host_fragment) as NavHostFragment
         navController = authNavHostFragment.navController
 
+
+
     }
 
     fun goHome(user: UserItem) {

@@ -32,11 +32,17 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
+        initUI()
+    }
+
+    private fun initUI() {
+        binding.ivLogin.setImageResource(R.drawable.background)
     }
 
     private fun initListeners() {
         binding.btnLogin.setOnClickListener {
             loginViewModel.userLogIn(binding.etUsername.text.toString(), binding.etPassword.text.toString())
+            MainActivity.baseUrl = "http://81.39.108.35:8080/travelagency/"
         }
 
         binding.btnSignUp.setOnClickListener {
@@ -47,6 +53,8 @@ class LoginFragment : Fragment() {
             if(it == null) showAlert()
             else logIn(it)
         })
+
+
     }
 
     private fun navigateToSignUp() {

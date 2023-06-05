@@ -49,7 +49,7 @@ class AccountFragment : Fragment() {
     private fun initListeners() {
         val currentUser = MainActivity.user
         binding.btnSave.setOnClickListener {
-            viewModel.userUpdate(UserItem(currentUser.idUser, binding.etUsername.text.toString(), binding.etEmail.text.toString(), binding.etPassword.text.toString(), binding.etPhone.text.toString(), currentUser.img, currentUser.administrator, currentUser.bookedTimes, currentUser.bookedRooms), currentUser.userPassword)
+            viewModel.userUpdate(UserItem(currentUser.idUser, binding.etUsername.text.toString(), binding.etEmail.text.toString(), binding.etPassword.text.toString(), binding.etPhone.text.toString(), currentUser.administrator, currentUser.bookedTimes, currentUser.bookedRooms), currentUser.userPassword)
         }
 
         binding.btnLogOut.setOnClickListener {
