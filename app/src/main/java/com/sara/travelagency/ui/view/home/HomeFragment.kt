@@ -56,10 +56,7 @@ class HomeFragment : Fragment() {
                 viewModel.lookUpRoom(binding.tvAutoComplete.text.toString(), binding.etPeople.text.toString(), binding.etBudget.text.toString(), dateCheckIn, dateCheckOut, navigateToResults ={navigateToResults(it)})
             }
         }
-//        autoCompleteTextView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
-//            val itemSelected = adapterView.getItemAtPosition(i)
-//
-//        }
+
     }
 
     override fun onCreateView(

@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
     private val signUpUser: SignUpUser,
-    private val logInUser: LogInUser
+
 ): ViewModel(){
 
     val isInsertedSignUpViewModel = MutableLiveData<Boolean>()
@@ -28,13 +28,5 @@ class SignUpViewModel @Inject constructor(
         }
     }
 
-    fun userLogIn(username: String, password: String) {
-        viewModelScope.launch {
-
-            val user = logInUser(username, password)
-            userLoginViewModel.postValue(user)
-
-        }
-    }
 
 }

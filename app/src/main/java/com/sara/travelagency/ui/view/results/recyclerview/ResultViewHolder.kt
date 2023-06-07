@@ -27,8 +27,6 @@ class ResultViewHolder (view: View): RecyclerView.ViewHolder(view){
         binding.hotelName.text = roomItem.hotel.hotelName
         binding.hotelAddress.text = roomItem.hotel.address
 
-
-
         val sb = StringBuilder()
         val nights = calculatesNights(dateCheckIn, dateCheckOut)
         sb.append(calculatesPrice(nights, roomItem.price).toString())

@@ -3,6 +3,7 @@ package com.sara.travelagency.ui.view.details
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,10 @@ import com.sara.travelagency.domain.model.RoomItem
 import com.sara.travelagency.ui.view.MainActivity
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
+import java.lang.StringBuilder
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
 
 private const val ID_ROOM = "id"
 private const val DATE_CHECK_IN = "DATE_CHECK_IN"
@@ -50,7 +55,11 @@ class DetailsFragment : Fragment() {
     private fun loadUI(roomItem: RoomItem) {
         binding.tvHotelName.text= roomItem.hotel.hotelName
         binding.tvAddress.text= roomItem.hotel.address
-        binding.tvPrice.text= roomItem.price
+        val sb = StringBuilder()
+        val nights = calculatesNights(dateCheckIn, dateCheckOut)
+        sb.append(calculatesPrice(nights, roomItem.price).toString())
+        sb.append(" €")
+        binding.tvPrice.text= sb.toString()
         Picasso.get().load((MainActivity.baseUrl+ "hotels/logo/"+roomItem.hotel.idHotel)).into(binding.imgHotel)
         loadStars(roomItem.hotel.stars.toInt())
         url = roomItem.hotel.website
@@ -91,6 +100,29 @@ class DetailsFragment : Fragment() {
         if(stars > 2) binding.star3.setImageResource(R.drawable.ic_star_enabled)
         if(stars > 3) binding.star4.setImageResource(R.drawable.ic_star_enabled)
         if(stars > 4) binding.star5.setImageResource(R.drawable.ic_star_enabled)
+    }
+
+    fun calculatesNights(dateCheckInStr: String, dateCheckOutStr: String): Long {
+        Log.i("NIGHTS", "dateCheckInStr $dateCheckInStr")
+        Log.i("NIGHTS", "dateCheckOutStr $dateCheckOutStr")
+
+        val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")
+        val startDate = LocalDateTime.parse(dateCheckInStr, formatter)
+        val endDate = LocalDateTime.parse(dateCheckOutStr, formatter)
+
+
+        Log.i("NIGHTS", "startDate $startDate")
+        Log.i("NIGHTS", "endDate $endDate")
+
+        val days = ChronoUnit.DAYS.between(startDate, endDate)
+        Log.i("NIGHTS", "days $days")
+
+        return days
+    }
+
+    fun calculatesPrice(nights:Long, price: String): Double{
+        val pricePerNight = price.toDouble()
+        return (nights*pricePerNight.toDouble())
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

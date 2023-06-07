@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
     private fun initListeners() {
         binding.btnLogin.setOnClickListener {
             loginViewModel.userLogIn(binding.etUsername.text.toString(), binding.etPassword.text.toString())
-            MainActivity.baseUrl = "http://81.39.108.35:8080/travelagency/"
+
         }
 
         binding.btnSignUp.setOnClickListener {

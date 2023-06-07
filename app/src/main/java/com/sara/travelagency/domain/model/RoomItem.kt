@@ -7,7 +7,6 @@ data class RoomItem (
     val idRoom: String,
     val price: String,
     val capacity: String,
-    val booked: String,
     val hotel: HotelItem,
     )
 data class HotelItem (
@@ -21,5 +20,5 @@ data class HotelItem (
     var bookedTimes: String
     )
 
-fun RoomResponse.toDomain(hotelItem: HotelItem)=RoomItem(idRoom, price, capacity, booked, hotelItem)
+fun RoomResponse.toDomain(hotelItem: HotelItem)=RoomItem(idRoom, price, capacity, hotelItem)
 fun HotelResponse.toDomain()=HotelItem(idHotel, logo, hotelName, address, city, stars, website, bookedTimes)

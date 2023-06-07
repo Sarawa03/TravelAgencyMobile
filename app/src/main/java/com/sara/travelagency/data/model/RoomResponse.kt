@@ -8,8 +8,7 @@ data class RoomResponse (
     @SerializedName("idroom") val idRoom: String,
     @SerializedName("price") val price: String,
     @SerializedName("capacity") val capacity: String,
-    @SerializedName("booked") val booked: String,
     @SerializedName("hotel") val hotel: String
     ): Serializable
 
-fun RoomItem.toDomain() = RoomResponse(idRoom, price, capacity, booked, hotel.idHotel!!)
+fun RoomItem.toDomain() = RoomResponse(idRoom, price, capacity, hotel.idHotel!!)

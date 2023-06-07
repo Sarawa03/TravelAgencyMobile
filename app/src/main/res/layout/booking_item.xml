@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="280dp"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="10dp"
     android:layout_marginVertical="16dp"
     app:cardBackgroundColor="@color/background_text"
@@ -108,8 +108,8 @@
 
         <TextView
             android:id="@+id/hotelAddress"
-            android:layout_width="341dp"
-            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/suburban_road_kefalos_kos_greece_kefalos_85301_greece"
             android:textColor="@color/card_text"
