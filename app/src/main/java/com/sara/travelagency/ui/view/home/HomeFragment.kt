@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
 
     private fun initUI() {
         autoCompleteTextView = binding.tvAutoComplete
-        val adapterItems = ArrayAdapter(this.requireContext(), R.layout.country_dropdown_list, viewModel.allCountries())
+        val adapterItems = ArrayAdapter<String>(this.requireContext(), R.layout.country_dropdown_list, viewModel.allCountries())
         binding.tvWelcome.text = StringBuilder("Welcome, " + MainActivity.user.username).toString()
         autoCompleteTextView.setAdapter(adapterItems)
 

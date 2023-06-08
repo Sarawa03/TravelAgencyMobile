@@ -13,11 +13,6 @@
         android:layout_margin="30dp"
         android:orientation="vertical">
 
-<!--        <ImageView-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_gravity="end"-->
-<!--            android:src="@drawable/default_pfp" />-->
 
         <TextView
             android:id="@+id/tvWelcome"
@@ -37,6 +32,7 @@
             android:textSize="16sp"
             app:dividerColor="@color/divider" />
 
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,15 +50,18 @@
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp">
             <AutoCompleteTextView
-
+                style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:id="@+id/tvAutoComplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_text"
                 android:textColorHint="@color/color_text"
+                android:completionThreshold="1"
                 android:textSize="16sp"
-                android:inputType="none"/>
+                android:inputType="text"
+                android:textCursorDrawable="@drawable/color_cursor"/>
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
